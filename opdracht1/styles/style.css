@@ -4,10 +4,10 @@
 /* FONTS */
 /*********/
 @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
-	font-weight: normal;
+	font-family: 'futura';
+	src: url('../fonts/Futura\ Bold.otf') format('otf'),
+			 url('../fonts/Futura\ Bold.otf') format('otf');
+	font-weight: bold;
 	font-style: normal;
 
 }
@@ -38,6 +38,9 @@ button:not[disabled], summary {
 	/* startje */
 	--color-text:#111;
 	--color-background:#eee;
+	--color-fed: #4D148C;
+	--color-ex: #FF6600;
+
 }
 
 
@@ -55,3 +58,41 @@ body {
 
 /* jouw code */
 
+h1 {
+font-family: futura, sans;
+font-size: 7em;
+letter-spacing: -0.229em;
+
+}
+
+h1 span:nth-child(1), span:nth-child(2), span:nth-child(3) {
+color: var(--color-fed);
+}
+
+h1 span:nth-child(2) {
+	letter-spacing: -0.2em;
+}
+
+h1 span:nth-child(4), span:nth-child(5) {
+	color: var(--color-ex);
+}
+
+h1 span:nth-child(4) {
+	letter-spacing: -0.05em;
+	font-family: Univers 67 Condensed Bold, sans;
+}
+
+h1 span:nth-child(5) {
+	font-size: 0.9em;
+}
+
+h1 span:nth-child(3)::before {
+	content: '';
+	position: absolute;
+	left: 5.65%;
+	top: 4.7785%;
+
+	background-color: var(--color-background);
+	width: 0.24em;
+	height: 0.1em;
+}
