@@ -32,16 +32,19 @@ Aan deze technieken/punten wil ik werken:
 
 ## Opdracht 1 tussentijdse feedback
 
-<details open>
-![Link naar het miro board](https://miro.com/app/board/uXjVPw4ZF3E=/)
+[Link naar het miro board](https://miro.com/app/board/uXjVPw4ZF3E=/)
+
 Feedback van Nicole (klasgenoot)
 <img src="readme-images/Feedback-1.png" width="375px" alt="Feedback omtrent concept">
+
 Mijn concept is goedgekeurd voor, omdat het past bij het merk. FedEx is het woordmerk dat ik heb gekozen om te gaan animeren.
 
 <img src="readme-images/Feedback-2.png" width="375px" alt="Feedback omtrent diverse schermen">
+
 Mijn logo neemt eigenlijk volle breedte van het scherm in, hierdoor kan het eigenlijk gebruikt worden voor bijna alle formaten, omdat de animatie van het scherm afrolt. Er zou wel nog een knoop ontstaan in het timen van hoelang de animatie buiten het scherm blijft.
 
 <img src="readme-images/Feedback-3.png" width="375px" alt="Feedback omtrent techniek">
+
 De techniek valt prima behalen. Ik moet goed gebruik maken van pseudo elementen zoals "::before of ::after".
 Deze moet ik goed tussen het pijltje van FedEx stoppen zodat de outro animatie goed verloopt.
 Verder moet er voor techniek goed gekeken worden naar de fonts die het FedEx pijltje kunnen weergeven.
@@ -49,6 +52,7 @@ Momenteel mix ik 2 fonts door elkaar waardoor het redelijk goed lijkt.
 
 Dit is momenteel het probleem:
 <img src="readme-images/Probleem-1.png" width="375px" alt="Probleem van de font">
+
 Ik kan het gewilde resultaat behalen door de letters in de span zelf te manipuleren en het researchen van een passende karakteristieke font.
 De problemen zijn aangegeven met een rode cirkel/rechthoek zodat het duidelijk is waar we over praten.
 De letter "d" die uitsteekt valt gefixt te worden door een pseudo element goed te plaatsen met "position: absolute;"
