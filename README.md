@@ -32,6 +32,7 @@ Aan deze technieken/punten wil ik werken:
 
 ## Opdracht 1 tussentijdse feedback
 
+<details open>
 ![Link naar het miro board](https://miro.com/app/board/uXjVPw4ZF3E=/)
 Feedback van Nicole (klasgenoot)
 <img src="readme-images/Feedback-1.png" width="375px" alt="Feedback omtrent concept">
@@ -51,6 +52,8 @@ Dit is momenteel het probleem:
 Ik kan het gewilde resultaat behalen door de letters in de span zelf te manipuleren en het researchen van een passende karakteristieke font.
 De problemen zijn aangegeven met een rode cirkel/rechthoek zodat het duidelijk is waar we over praten.
 De letter "d" die uitsteekt valt gefixt te worden door een pseudo element goed te plaatsen met "position: absolute;"
+
+</details>
 
 ## Opdracht 1 reflectie
 
