@@ -32,7 +32,8 @@ Aan deze technieken/punten wil ik werken:
 
 ## Opdracht 1 tussentijdse feedback
 
-![Link naar het miro board](https://miro.com/app/board/uXjVPw4ZF3E=/)
+[Link naar het miro board](https://miro.com/app/board/uXjVPw4ZF3E=/)
+
 Feedback van Nicole (klasgenoot)
 <img src="readme-images/Feedback-1.png" width="375px" alt="Feedback omtrent concept">
 Mijn concept is goedgekeurd voor, omdat het past bij het merk. FedEx is het woordmerk dat ik heb gekozen om te gaan animeren.
