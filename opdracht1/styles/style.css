@@ -3,16 +3,18 @@
 /*********/
 /* FONTS */
 /*********/
+
+/* gebruik van font face omdat de font dan maar 1x geladen hoeft te worden, ik heb gebruik gemaakt van FontSquirrel om woff(2) bestanden te maken zodat het nieuwe internet deze goed kan gebruiken */
 @font-face {
   font-family: "futura";
-  src: url("../fonts/Futura\ Bold.otf") format("otf"),
-    url("../fonts/Futura\ Bold.otf") format("otf");
+  src: url("../fonts/futurabold.woff") format("woff"),
+    url("../fonts/futurabold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Univers";
+  font-family: "Wavehaus";
   src: url("../fonts/wavehaus.woff") format("woff"),
     url("../fonts/wavehaus.woff2") format("woff2");
   font-weight: bold;
@@ -39,7 +41,8 @@ summary {
 :root {
   /* startje */
   --color-text: #111;
-  --color-background: #eee;
+  --color-black: #000;
+  --color-background: #fff;
   --color-fed: #4d148c;
   --color-ex: #ff6600;
 }
@@ -48,95 +51,306 @@ summary {
 /* JOUW STYLING */
 /****************/
 body {
-  /* font-family: eenfont, sans-serif; */
   color: var(--color-text);
   background-color: var(--color-background);
+  overflow: hidden;
 }
 
-/* jouw code */
-
+/* het invagen effect van de letters*/
 @keyframes LetterFade {
   0% {
     opacity: 0;
     animation-timing-function: ease-in;
   }
+
   100% {
     opacity: 1;
   }
 }
 
+/* het kantelen van de letters zodat het lijkt alsof een auto wilt lanceren*/
+@keyframes LetterSkew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  100% {
+    transform: skew(15deg);
+  }
+}
+
+/* De letters lanceren naar rechts en die buiten beeld stoppen, overflow is hidden hiervoor*/
+@keyframes LaunchRight {
+  0% {
+    transform: translateX(0);
+    webkit-transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(3000%);
+    webkit-transform: translateX(3000%);
+  }
+}
+
+/* De letters spiegelen zodat het lijkt alsof het woordje "FED" achterom kijkt*/
+@keyframes MirrorText {
+  0% {
+    transform: scale(-1, 1);
+    transition: 0s;
+  }
+
+  99% {
+    transform: scale(-1, 1);
+    transition: 0s;
+  }
+
+  100% {
+    transform: scale(0);
+    transition: 0s;
+  }
+}
+
+/* De animatie om de letters vanuit links op het scherm terug te laten komen naar hun positie*/
+@keyframes EntranceLeft {
+  0% {
+    transform: translateX(-3000%);
+    webkit-transform: translateX(-3000%);
+  }
+
+  100% {
+    transform: translateX(0%);
+    webkit-transform: translateX(0%);
+  }
+}
+
+/* het "vervagen" van de letters, ik manipuleer het door de achtergrond effect als kleur te geven zodat de ::before element nog zichtbaar blijft*/
+@keyframes FadeOutLetter {
+  0% {
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    color: var(--color-background);
+  }
+}
+
+/* De donkere versie van het effect, hier is alleen de kleur verandert eigenlijk*/
+@keyframes FadeOutLetterDark {
+  0% {
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    color: var(--color-black);
+  }
+}
+
+/* de kleur van de ::before manipuleren om de "arrow" tot levend te brengen*/
+@keyframes ArrowColor {
+  0% {}
+
+  50% {
+    background-color: var(--color-ex);
+  }
+
+  100% {
+    background-color: var(--color-background);
+  }
+}
+
+/* De donkere versie van het effect, hier is alleen de kleur verandert eigenlijk*/
+@keyframes ArrowColorDark {
+  0% {}
+
+  50% {
+    background-color: var(--color-ex);
+  }
+
+  100% {
+    background-color: var(--color-black);
+  }
+}
+
+/* De h1's de juiste grootte geven, ik gebruik em zodat alles relatief en responsive is*/
 h1 {
+  left: 50%;
   font-size: 7em;
   letter-spacing: -0.17em;
 }
 
-h1 span:nth-child(1) {
-  letter-spacing: -0.2em;
+/* Het centreren van de tekst*/
+h1 span:nth-child(1),
+span:nth-child(2),
+span:nth-child(3),
+span:nth-child(4),
+span:nth-child(5) {
+  position: absolute;
+  top: 37%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+/* De letter correct op zijn plaats zetten*/
+h1 span:nth-child(1) {
+  transform: translateX(-100%);
+}
+
+/* De letters de juiste fonts geven en een passende fallback font*/
 h1 span:nth-child(1),
 span:nth-child(2),
 span:nth-child(3),
 span:nth-child(4) {
-  font-family: futura, sans;
+  font-family: futura, sans-serif;
 }
 
+/* het kleuren van "FED"*/
 h1 span:nth-child(1),
 span:nth-child(2),
 span:nth-child(3) {
   color: var(--color-fed);
 }
 
+/* het kleuren van "ED"*/
 h1 span:nth-child(4),
 span:nth-child(5) {
   color: var(--color-ex);
 }
 
+/* De letter correct op zijn plaats zetten*/
 h1 span:nth-child(3) {
   letter-spacing: -0.2em;
 }
 
+/* De letter correct op zijn plaats zetten*/
 h1 span:nth-child(4) {
   letter-spacing: -0.18em;
 }
 
+/* De letters de juiste fonts geven en een passende fallback font*/
 h1 span:nth-child(5) {
   font-size: 0.925em;
-  font-family: Univers, sans-serif;
+  font-family: Wavehaus, sans-serif;
   font-weight: 800;
 }
 
-h1 span:nth-child(3)::before {
-  content: "";
-  position: absolute;
-  left: 21%;
-  top: 13.53%;
-
-  background-color: var(--color-background);
-  width: 0.24em;
-  height: 0.1em;
-}
-
+/* animaties voor de eerste letter F, daarnaast opacity 0 omdat we het in willen laten vagen */
 h1 span:nth-child(1) {
-  animation: LetterFade 1s forwards;
+  opacity: 0;
+  animation: LetterFade 1s forwards, LetterSkew 3s ease-in 3000ms, MirrorText 2s 11000ms none, LetterSkew 3s ease-in 13000ms, LaunchRight 3s ease-out 16000ms forwards, EntranceLeft 3s ease-out 18000ms forwards, FadeOutLetter 0.5s ease-out 21000ms forwards;
+  margin-left: -0.85em;
 }
 
-h1 span:nth-child(2) {
-  animation: LetterFade 1s forwards;
-  animation-delay: 0.3s;
+/* de "vroom" tekst die onder de logo begint te verschijnen */
+h1 span:nth-child(1)::before {
+  position: absolute;
+  content: 'vroom';
+  color: var(--color-black);
+  rotate: -10deg;
+  font-size: 0.3em;
+  letter-spacing: 0;
+  margin-top: 3.5em;
+  padding-right: 2em;
+  text-align: right;
+  opacity: 0;
+
+  /* de animatie van de vroom tekst */
+  animation: LetterFade 0.6s ease-in-out 3000ms, LetterFade 0.6s ease-in-out 13000ms;
+  animation-iteration-count: 5, 5;
+
 }
+
+
+/* animatie voor de letter E */
+h1 span:nth-child(2) {
+  opacity: 0;
+  animation: LetterFade 1s 300ms forwards, LetterSkew 3s ease-in 3000ms, MirrorText 2s 11000ms none, LetterSkew 3s ease-in 13000ms, LaunchRight 3s ease-out 16000ms forwards, EntranceLeft 3s ease-out 18000ms forwards, FadeOutLetter 0.5s ease-out 21000ms forwards;
+  margin-left: -0.55em;
+}
+
+/* animatie voor de letter D */
 
 h1 span:nth-child(3) {
-  animation: LetterFade 1s forwards;
-  animation-delay: 0.6s;
+  opacity: 0;
+  animation: LetterFade 1s 600ms forwards, LetterSkew 3s ease-in 3000ms, MirrorText 2s 11000ms none, LetterSkew 3s ease-in 13000ms, LaunchRight 3s ease-out 16000ms forwards, EntranceLeft 3s ease-out 18000ms forwards, FadeOutLetter 0.5s ease-out 21000ms forwards;
 }
+
+/* animatie voor de letter E2 */
 
 h1 span:nth-child(4) {
-  animation: LetterFade 1s forwards;
-  animation-delay: 0.9s;
+  opacity: 0;
+  margin-left: 0.51em;
+  animation: LetterFade 1s 900ms forwards, LetterSkew 3s ease-in 3000ms, LaunchRight 3s ease-out 6500ms forwards, EntranceLeft 3s ease-out 16000ms forwards, FadeOutLetter 0.5s ease-out 22000ms forwards;
 }
 
+/* het pijltje tussen de E en de X */
+
+h1 span:nth-child(4)::before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  margin-left: 0.2em;
+  margin-top: 0.6em;
+  width: 0.4em;
+  height: 0.35em;
+  background-color: var(--color-background);
+  border-radius: 0.1em;
+
+  /* outro animatie */
+  animation: ArrowColor 3s 22000ms forwards;
+}
+
+/* animatie voor de letter X */
 h1 span:nth-child(5) {
-  animation: LetterFade 1s forwards;
-  animation-delay: 1.2s;
+  opacity: 0;
+  margin-left: 1em;
+  margin-top: 0.264em;
+  animation: LetterFade 1s 1200ms forwards, LetterSkew 3s ease-in 3000ms, LaunchRight 3s ease-out 6000ms forwards, EntranceLeft 3s ease-out 16000ms forwards, FadeOutLetter 0.5s ease-out 22000ms forwards;
+}
+
+/* dark modus */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-black);
+    overflow: hidden;
+  }
+
+  h1 span:nth-child(1)::before {
+    color: var(--color-background);
+  }
+
+  h1 span:nth-child(4)::before {
+    background-color: var(--color-black);
+    animation: ArrowColorDark 3s 22000ms forwards;
+  }
+
+  h1 span:nth-child(1) {
+    opacity: 0;
+    animation: LetterFade 1s forwards, LetterSkew 3s ease-in 3000ms, MirrorText 2s 11000ms none, LetterSkew 3s ease-in 13000ms, LaunchRight 3s ease-out 16000ms forwards, EntranceLeft 3s ease-out 18000ms forwards, FadeOutLetterDark 0.5s ease-out 21000ms forwards;
+    margin-left: -0.85em;
+  }
+
+  h1 span:nth-child(2) {
+    opacity: 0;
+    animation: LetterFade 1s 300ms forwards, LetterSkew 3s ease-in 3000ms, MirrorText 2s 11000ms none, LetterSkew 3s ease-in 13000ms, LaunchRight 3s ease-out 16000ms forwards, EntranceLeft 3s ease-out 18000ms forwards, FadeOutLetterDark 0.5s ease-out 21000ms forwards;
+    margin-left: -0.55em;
+  }
+
+  h1 span:nth-child(3) {
+    opacity: 0;
+    animation: LetterFade 1s 600ms forwards, LetterSkew 3s ease-in 3000ms, MirrorText 2s 11000ms none, LetterSkew 3s ease-in 13000ms, LaunchRight 3s ease-out 16000ms forwards, EntranceLeft 3s ease-out 18000ms forwards, FadeOutLetterDark 0.5s ease-out 21000ms forwards;
+  }
+
+  h1 span:nth-child(4) {
+    opacity: 0;
+    margin-left: 0.51em;
+    animation: LetterFade 1s 900ms forwards, LetterSkew 3s ease-in 3000ms, LaunchRight 3s ease-out 6500ms forwards, EntranceLeft 3s ease-out 16000ms forwards, FadeOutLetterDark 0.5s ease-out 22000ms forwards;
+  }
+
+  h1 span:nth-child(5) {
+    opacity: 0;
+    margin-left: 1em;
+    margin-top: 0.264em;
+    animation: LetterFade 1s 1200ms forwards, LetterSkew 3s ease-in 3000ms, LaunchRight 3s ease-out 6000ms forwards, EntranceLeft 3s ease-out 16000ms forwards, FadeOutLetterDark 0.5s ease-out 22000ms forwards;
+  }
 }
