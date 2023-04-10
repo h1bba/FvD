@@ -4,54 +4,125 @@
 /* FONTS */
 /*********/
 @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-
-
-
 
 /**************/
 /* CSS REMEDY */
 /**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-button:not[disabled], summary {
-	cursor: pointer;
+button:not[disabled],
+summary {
+  cursor: pointer;
 }
-
-
-
-
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+  /* startje */
+  --color-text: #111;
+  --color-white: #eee;
+  --color-gold: gold;
+  --color-button-outline: #aa6c39;
+  --color-dark-red: #9e3d51;
+  --color-dark-purple: #421f3d;
+  --color-background: linear-gradient(
+    135deg,
+    rgba(158, 61, 81, 1) 0%,
+    rgba(66, 31, 61, 1) 100%
+  );
+  --dark-highlight: rgba(0, 0, 0, 0.2);
+  --dark-highlight-border: rgba(255, 255, 255, 0.4);
 }
-
-
-
-
 
 /****************/
 /* JOUW STYLING */
 /****************/
 body {
-  font-family:eenfont, sans-serif;
-  color:var(--color-text);
-  background-color:var(--color-background);
+  font-family: Poppins, sans-serif;
+  color: var(--color-text);
+  background-image: var(--color-background);
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
 }
 
 /* jouw code */
 
+button {
+  display: block;
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 15em;
+
+  background-color: var(--color-gold);
+  padding: 1em 1em 1em 1em;
+  border-radius: 1.5em;
+  border: 0.3em solid var(--color-button-outline);
+  color: var(--color-text);
+
+  font-size: 1.2em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+ul {
+  align-self: center;
+}
+
+li:first-of-type::before {
+  position: absolute;
+  content: "";
+  background-color: var(--dark-highlight-border);
+  left: -0.65em;
+  top: -0.55em;
+  margin: auto;
+  width: 4.5em;
+  height: 4.3em;
+  border-radius: 1em;
+  z-index: -1;
+}
+
+ul:first-of-type {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  flex-wrap: nowrap;
+
+  max-width: 95%;
+  list-style: none;
+  padding: 0 0 0 1em;
+  border-radius: 1em;
+  background-color: var(--dark-highlight);
+  border: 0.2em solid var(--dark-highlight-border);
+}
+
+li {
+  position: relative;
+  scroll-snap-align: end;
+
+  width: 20%;
+  background-color: var(--color-gold);
+  border-radius: 3em;
+  padding: 1em;
+  margin: 0.75em;
+  min-width: 3.5em;
+  text-align: center;
+
+  font-size: 1.2em;
+  font-family: sans-serif;
+  font-weight: 700;
+  border: 0.2em solid var(--color-button-outline);
+}
