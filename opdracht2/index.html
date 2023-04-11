@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Ufuk Argun" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="author" content="Ufuk Argun" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
 
-  <title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
+    <link href="styles/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  </head>
 
-  <link href="styles/style.css" rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-</head>
+  <body>
+    <button id="pullNumber">Trek nummer</button>
+    <h2>Getrokken nummers:</h2>
+    <section>
+      <ul id="randomNumbersList"></ul>
+    </section>
 
-<body>
-  <button id="pullNumber">Trek nummer</button>
-  <section>
-    <ul id="randomNumbersList"></ul>
-  </section>
-  <script defer src="scripts/script.js"></script>
-</body>
+    <section>
+      <h2>Jouw Bingo kaart:</h2>
+      <ul id="bingoCardList"></ul>
+      <button>Bingo</button>
+    </section>
 
-<section>
-  <h2>Bingo Card</h2>
-  <ul id="bingoCardList"></ul>
-</section>
-
+    <script defer src="scripts/script.js"></script>
+  </body>
 </html>

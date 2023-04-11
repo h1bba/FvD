@@ -10,6 +10,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBold.woff") format("woff");
+  font-weight: semibold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
 /**************/
 /* CSS REMEDY */
 /**************/
@@ -35,18 +49,30 @@ summary {
   --color-button-outline: #aa6c39;
   --color-dark-red: #9e3d51;
   --color-dark-purple: #421f3d;
-  --color-background: linear-gradient(135deg,
-      rgba(158, 61, 81, 1) 0%,
-      rgba(66, 31, 61, 1) 100%);
+  --color-background: linear-gradient(
+    135deg,
+    rgba(158, 61, 81, 1) 0%,
+    rgba(66, 31, 61, 1) 100%
+  );
   --dark-highlight: rgba(0, 0, 0, 0.2);
   --dark-highlight-border: rgba(255, 255, 255, 0.4);
-  --bingo-number: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(50, 100%, 96%, 1) 100%);
+  --bingo-number: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 1) 0%,
+    hsla(50, 100%, 96%, 1) 100%
+  );
+  --bingo-button: linear-gradient(
+    0deg,
+    rgb(0, 242, 255) 0%,
+    rgb(11, 176, 246) 100%
+  );
 }
 
 /****************/
 /* JOUW STYLING */
 /****************/
 body {
+  margin: 0;
   font-family: Poppins, sans-serif;
   color: var(--color-text);
   background-image: var(--color-background);
@@ -57,7 +83,7 @@ body {
 
 /* jouw code */
 
-button {
+#pullNumber {
   display: block;
   position: absolute;
   bottom: 1em;
@@ -77,6 +103,15 @@ button {
   font-weight: bold;
 }
 
+body > section:nth-child(2) {
+  display: flex;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  justify-content: center;
+}
+
 ul {
   align-self: center;
 }
@@ -94,23 +129,28 @@ ul:nth-child(1) li:first-child:before {
   z-index: -1;
 }
 
-ul:first-of-type {
+ul:nth-child(1) {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   flex-wrap: nowrap;
-
+  margin: 0;
   max-width: 95%;
   list-style: none;
-  padding: 0 0 0 1em;
-  border-radius: 1em;
+  padding: 1em;
   background-color: var(--dark-highlight);
-  border: 0.2em solid var(--dark-highlight-border);
+  border: 0.2em solid var(--color-button-outline);
+  justify-content: center;
+  border-radius: 2em;
 }
 
 ul:nth-child(2) {
+  list-style: none;
+  padding: 0;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 ul:nth-child(2) li {
@@ -139,4 +179,34 @@ li {
   font-family: sans-serif;
   font-weight: 700;
   border: 0.2em solid var(--color-button-outline);
+}
+
+.matched {
+}
+
+body > section:nth-child(4) > button {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 14em;
+  max-width: 60%;
+
+  background-image: var(--bingo-button);
+  padding: 1em 1em 1em 1em;
+  border-radius: 1.5em;
+  border: 0.2em solid var(--color-white);
+  color: var(--color-white);
+
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--color-white);
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 2em;
 }
