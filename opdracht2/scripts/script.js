@@ -22,6 +22,21 @@ pullNumberBtn.addEventListener("click", function () {
   var liPulled = document.createElement("li"); // create a new list item element
   liPulled.textContent = randomNumber; // set its text content to the generated number
   randomNumbersList.insertBefore(liPulled, randomNumbersList.firstChild); // insert the list item at the beginning of the unordered list
+
+  // Check if the generated number matches with any number in the bingo card list
+  var bingoCardList = document.querySelectorAll("#bingoCardList li");
+  var matchedCount = 0;
+  for (var i = 0; i < bingoCardList.length; i++) {
+    if (bingoCardList[i].textContent == randomNumber) {
+      bingoCardList[i].classList.add("matched");
+      matchedCount++;
+    }
+  }
+
+  // Check if all the numbers in the bingo card have been matched
+  if (matchedCount == bingoCardList.length) {
+    alert("Congratulations! You have matched all the numbers on your bingo card.");
+  }
 });
 
 // Declare an empty array to store the bingo card numbers
@@ -30,8 +45,7 @@ var bingoCardNumbers = [];
 // Generate 20 unique random numbers between 0 and 30
 while (bingoCardNumbers.length < 20) {
   var randomNumber = Math.floor(Math.random() * 31); // generate a random number between 0 and 30
-  if (!bingoCardNumbers.includes(randomNumber)) {
-    // check if the random number is not already in the array
+  if (!bingoCardNumbers.includes(randomNumber)) { // check if the random number is not already in the array
     bingoCardNumbers.push(randomNumber); // add the random number to the array
   }
 }
