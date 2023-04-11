@@ -35,13 +35,12 @@ summary {
   --color-button-outline: #aa6c39;
   --color-dark-red: #9e3d51;
   --color-dark-purple: #421f3d;
-  --color-background: linear-gradient(
-    135deg,
-    rgba(158, 61, 81, 1) 0%,
-    rgba(66, 31, 61, 1) 100%
-  );
+  --color-background: linear-gradient(135deg,
+      rgba(158, 61, 81, 1) 0%,
+      rgba(66, 31, 61, 1) 100%);
   --dark-highlight: rgba(0, 0, 0, 0.2);
   --dark-highlight-border: rgba(255, 255, 255, 0.4);
+  --bingo-number: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(50, 100%, 96%, 1) 100%);
 }
 
 /****************/
@@ -82,7 +81,7 @@ ul {
   align-self: center;
 }
 
-li:first-of-type::before {
+ul:nth-child(1) li:first-child:before {
   position: absolute;
   content: "";
   background-color: var(--dark-highlight-border);
@@ -107,6 +106,21 @@ ul:first-of-type {
   border-radius: 1em;
   background-color: var(--dark-highlight);
   border: 0.2em solid var(--dark-highlight-border);
+}
+
+ul:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul:nth-child(2) li {
+  position: relative;
+  width: 10%;
+  padding: 1em;
+  margin: 0;
+  background-image: var(--bingo-number);
+  border-radius: 0.2em;
+  border: 1px solid var(--color-button-outline);
 }
 
 li {
