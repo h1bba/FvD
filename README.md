@@ -161,7 +161,7 @@ Ik kreeg hierna wat feedback van de docent en heb deze toegepast (clamp en korte
 
 ### Je ontwerp:
 
-![wireflow schets](https://user-images.githubusercontent.com/60386159/231453935-f522b5b8-8b17-4cf1-8b76-271f893bde49.jpeg)
+![WhatsApp Image 2023-04-12 at 13 13 06](https://user-images.githubusercontent.com/60386159/231462639-cc231b9c-3137-4a5d-b0cd-40a24170ed5a.jpeg)
 
 ### Je ambitie:
 
@@ -236,6 +236,31 @@ Dit heb ik gefixt door simpelweg in de html type="number" aan te geven
 
 ![image](https://user-images.githubusercontent.com/60386159/231460688-5ff4640c-bede-46d6-bd07-bed96e30ebd6.png)
 
+### Bevinding 4:
+
+de gebruikers misten een micro interactie voor het matchen van nummers, hier onstond verwarring of de nummer gematcht was of niet
+
+### oplossing:
+
+![image](https://user-images.githubusercontent.com/60386159/231463840-0ed60323-e5e5-49bc-a2fd-9fcdcf3ce882.png)
+
+![image](https://user-images.githubusercontent.com/60386159/231464090-cc731ce6-d639-4046-9fea-bd572b17243e.png)
+
+We geven de animatie ook de property forwards, zodat de groene kleur blijft staan zodra de animatie is afgelopen
+
+![image](https://user-images.githubusercontent.com/60386159/231464308-79970414-69c1-47d2-ab3d-9fcb9ce8aeba.png)
+
+### Bevinding 5:
+
+Sommige users waren slim genoeg om de bingo knop te klikken voordat het mogelijk was.
+
+### oplossing:
+
+Ik heb dit opgelost door een if else te gebruiken:
+
+![image](https://user-images.githubusercontent.com/60386159/231465000-d82112db-ca42-4e99-a7e2-17308b9f37cd.png)
+
+
 </details>
 
 ## Opdracht 2 reflectie
@@ -256,13 +281,33 @@ Dit heb ik gefixt door simpelweg in de html type="number" aan te geven
 
 De CSS highlight is gemakkelijk te maken door het gebruik van juiste position: relative; op de li zelf
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
-  
 Keydown events, index gebruik en event listeners
+
+Math.floor
+
+Elementen inserten vanuit JavaScript
 
 ### Dit was lastig/Is niet gelukt:
 
 Een apparte eindscherm die alles in de pagina verandert naar een eindscherm, ik heb nu zodra je bingo klikt een popup
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
+![image](https://user-images.githubusercontent.com/60386159/231463450-c7e1cf10-69d4-4ec0-856d-3dd878132095.png)
+
+Ik wilde de bingo knop een animatie geven zodra bingo mogelijk was, dit werd mij te complex met JavaScript
+
+
 </details>
+
+### Bronnen:
+
+[Event listener voor click](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event)
+[Push value naar een array](https://stackoverflow.com/questions/7261431/adding-items-to-an-object-through-the-push-method)
+[querySelector gebruik](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+[Math floor](https://www.tutorialspoint.com/math-floor-function-in-javascript#:~:text=floor()%20function%20in%20JavaScript,-HTMLJavascriptWeb&text=The%20floor()%20function%20of,this%20function%20returns%20the%20same.)
+[Loop voor li's](https://www.w3schools.com/js/js_loop_for.asp)
+[Classlist property](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+[Append child methode](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+[input UI event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)
+[tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex?retiredLocale=nl)
+[Keydown event](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event)
+[Alert methode](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
