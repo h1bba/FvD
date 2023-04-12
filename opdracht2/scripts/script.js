@@ -1,56 +1,68 @@
 // JavaScript Document
-// Declare an empty array to store the generated random numbers
+// randomNumbers array om de gerollde nummers in te stoppen
 var randomNumbers = [];
+// lijst met de gerollde nummers
 var randomNumbersList = document.querySelector("#randomNumbersList");
 
-// Get a reference to the "pullNumber" element
+// query selector met id voor de roll nummer knop
 var pullNumberBtn = document.querySelector("#pullNumber");
 
-// Add a "click" event listener to the element
+// eventlistener voor de click van pullNumberBtn zodat ik functies kan uitvoeren
 pullNumberBtn.addEventListener("click", function () {
-  // Generate a random number between 0 and 20
+  // getal tussen 0 en 30 genereren
   var randomNumber;
 
-  // Keep generating random numbers until a unique one is found
+  // nummers uniek maken
   do {
     randomNumber = Math.floor(Math.random() * 31);
   } while (randomNumbers.includes(randomNumber));
 
-  // Push the generated random number into the array
+  // Push de gerollde getal in de randomNumbers array
   randomNumbers.push(randomNumber);
 
-  var liPulled = document.createElement("li"); // create a new list item element
-  liPulled.textContent = randomNumber; // set its text content to the generated number
-  randomNumbersList.insertBefore(liPulled, randomNumbersList.firstChild); // insert the list item at the beginning of the unordered list
+  // maak een li voor de nieuwe nummer en insert hem als firstchild
+  var liPulled = document.createElement("li");
+  liPulled.textContent = randomNumber;
+  randomNumbersList.insertBefore(liPulled, randomNumbersList.firstChild);
 
-  // Check if the generated number matches with any number in the bingo card list
+  // maak een bingokaart lijst en zet de randomNumbers als Li om een bingokaart te maken
   var bingoCardList = document.querySelectorAll("#bingoCardList li");
   for (var i = 0; i < bingoCardList.length; i++) {
+    // als bingoCardList dezelfde waarde heeft als de gerollde nummer, voeg de class available toe aan de li
     if (bingoCardList[i].textContent == randomNumber) {
       bingoCardList[i].classList.add("available");
     }
   }
 
-  // Add animation to show the pulled number
+  // Animatie voor pulled number
   var pulledNumber = document.createElement("span");
+  // class geven
   pulledNumber.classList.add("pulled-number");
+  // de text als getal geven van random nummer
   pulledNumber.textContent = randomNumber;
+  // insert het in de body
   document.body.appendChild(pulledNumber);
+  // wacht met de class fade-out geven, verwijder het na 3 secondes
   setTimeout(function () {
     pulledNumber.classList.add("fade-out");
     setTimeout(function () {
       pulledNumber.remove();
+      // houd het in beeld voor 3 secondes
     }, 3000);
+    // wacht met de class fade-out geven, verwijder het na 0,5 secondes
   }, 500);
 });
 
+// searchbar
 var searchBar = document.querySelector("#searchBar");
 
+// ~lowerCase onnodig maar te weinig tijd om het te fixen~
 searchBar.addEventListener("input", function () {
   var filterValue = searchBar.value.toLowerCase();
   var filteredNumbers = randomNumbers.filter(function (number) {
     return number.toString().includes(filterValue);
   });
+  // laat alleen de gefilterde nummer zien
   randomNumbersList.innerHTML = "";
   filteredNumbers.forEach(function (number) {
     var li = document.createElement("li");
@@ -59,31 +71,34 @@ searchBar.addEventListener("input", function () {
   });
 });
 
-// Declare an empty array to store the bingo card numbers
+// bingo kaart nummers
 var bingoCardNumbers = [];
 
-// Generate 20 unique random numbers between 0 and 30
+// genereer 20 unieke nummers
 while (bingoCardNumbers.length < 20) {
-  var randomNumber = Math.floor(Math.random() * 31); // generate a random number between 0 and 30
+  // tussen de 0 en 30
+  var randomNumber = Math.floor(Math.random() * 31);
   if (!bingoCardNumbers.includes(randomNumber)) {
-    // check if the random number is not already in the array
-    bingoCardNumbers.push(randomNumber); // add the random number to the array
+    // kijk of hij niet al in de bingoCardNumbers zit zodat het uniek blijft
+    bingoCardNumbers.push(randomNumber);
   }
 }
 
-// Display the bingo card numbers on the screen
+// zet de bingokaart in scherm als li's
 var bingoCardList = document.querySelector("#bingoCardList");
 for (var i = 0; i < bingoCardNumbers.length; i++) {
   var li = document.createElement("li");
   li.textContent = bingoCardNumbers[i];
-  li.setAttribute("tabindex", "0"); // add tabindex attribute
+  // tabindex voor de keydowns
+  li.setAttribute("tabindex", "0");
   bingoCardList.appendChild(li);
 
-  // Add a click event listener to each li element in the bingo card list
+  // event listeners op de li zodat matchen mogelijk is
   li.addEventListener("click", function () {
-    // Check if the clicked li element matches with any number in the randomNumbers array
+    // kijk of de textcontent in de gerollde nummers zit
     var clickedNumber = parseInt(this.textContent);
     if (randomNumbers.includes(clickedNumber)) {
+      // voeg de class matched toe
       this.classList.add("matched");
     }
   });
@@ -91,9 +106,9 @@ for (var i = 0; i < bingoCardNumbers.length; i++) {
 
 // Add a keydown event listener to the document
 document.addEventListener("keydown", function (event) {
-  // Check if the pressed key is the spacebar (keyCode 32)
+  // spacebar is keycode 32
   if (event.keyCode === 32) {
-    // Simulate a click on the "pullNumber" button
+    // pullNumberBtn uitvoeren
     pullNumberBtn.click();
   }
 });
@@ -101,14 +116,19 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("keydown", function (event) {
   // handle arrow key presses
   var bingoCardList = document.querySelectorAll("#bingoCardList li");
+  // vind de index
   var activeIndex = Array.from(bingoCardList).findIndex(
+    // pak de huidige element
     (li) => li === document.activeElement
   );
   if (event.key === "ArrowLeft") {
+    // 1 plek naar links
     if (activeIndex > 0) {
+      // geef focus state
       bingoCardList[activeIndex - 1].focus();
     }
   } else if (event.key === "ArrowRight") {
+    // 1 plek naar rechts
     if (activeIndex < bingoCardList.length - 1) {
       bingoCardList[activeIndex + 1].focus();
     }
@@ -124,17 +144,18 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-  // Check if the pressed key is the Enter key (keyCode 13)
+  // keycode enter 13
   if (event.keyCode === 13) {
-    // Get the currently active element
+    // pak de actieve element
     var activeElement = document.activeElement;
 
-    // Check if the active element is an li element in the bingo card list
+    // kijk of de actieve element in de bingoCardList zit
+    // https://stackoverflow.com/questions/27285714/javascript-parentnode-id-not-working-the-way-i-expected //
     if (
       activeElement.tagName === "LI" &&
       activeElement.parentNode.id === "bingoCardList"
     ) {
-      // Check if the clicked li element matches with any number in the randomNumbers array
+      // kijk of de actieve element matched met de randomNumbers en geef dan de class matched als het succesvol is
       var clickedNumber = parseInt(activeElement.textContent);
       if (randomNumbers.includes(clickedNumber)) {
         activeElement.classList.add("matched");
@@ -143,10 +164,10 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Get a reference to the "bingo" button
+// Bingo knop
 var bingoBtn = document.querySelector("#bingoBtn");
 
-// Add a click event listener to the button
+// als de matchednumbers de waarde 20 heeft, is bingo mogelijk (20 matched li's)
 bingoBtn.addEventListener("click", function () {
   var matchedNumbers = document.querySelectorAll("#bingoCardList li.matched");
   if (matchedNumbers.length === 20) {
