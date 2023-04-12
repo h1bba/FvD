@@ -331,9 +331,9 @@ body {
     border: 1px solid var(--color-button-outline);
   }
 
-  li {
+  #randomNumbersList>li {
     position: relative;
-    scroll-snap-align: end;
+    scroll-snap-align: center;
 
     width: 20%;
     background-color: var(--color-gold);
