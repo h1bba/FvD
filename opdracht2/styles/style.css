@@ -400,7 +400,7 @@ body {
 }
 
 /* media query 1200 px */
-@media screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
   h1 {
     margin-bottom: 3em;
   }
