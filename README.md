@@ -167,10 +167,10 @@ Ik kreeg hierna wat feedback van de docent en heb deze toegepast (clamp en korte
 
 Aan deze technieken/punten wil ik werken:
 
-Keydown events
-Input events
-Bingo systeem maken
-Styling kunnen geven aan JS gegenereerde elementen
+- Keydown events
+- Input events
+- Bingo systeem maken
+- Styling kunnen geven aan JS gegenereerde elementen
 
 </details>
 
@@ -231,6 +231,10 @@ de user kon in de input UI event ook letters als input geven, terwijl de gerolld
 Dit heb ik gefixt door simpelweg in de html type="number" aan te geven
 
 ![image](https://user-images.githubusercontent.com/60386159/231460230-d5b00002-bdff-41ac-a039-8c23cf7c30a5.png)
+  
+![image](https://user-images.githubusercontent.com/60386159/231460607-424ce0ce-6d53-4a53-8383-187f9cffce6d.png)
+
+![image](https://user-images.githubusercontent.com/60386159/231460688-5ff4640c-bede-46d6-bd07-bed96e30ebd6.png)
 
 </details>
 
@@ -250,13 +254,15 @@ Dit heb ik gefixt door simpelweg in de html type="number" aan te geven
 
 ### Dit ging goed/Heb ik geleerd:
 
-Korte omschrijving met plaatje(s)
+De CSS highlight is gemakkelijk te maken door het gebruik van juiste position: relative; op de li zelf
 
   <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+  
+Keydown events, index gebruik en event listeners
 
 ### Dit was lastig/Is niet gelukt:
 
-Korte omschrijving met plaatje(s)
+Een apparte eindscherm die alles in de pagina verandert naar een eindscherm, ik heb nu zodra je bingo klikt een popup
 
   <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
 </details>
