@@ -271,9 +271,11 @@ Ik heb dit opgelost door een if else te gebruiken:
 ### Je uitkomst - karakteristiek screenshot(s):
 
   Dark-mode small screen
+  
   ![animation](https://user-images.githubusercontent.com/60386159/231458016-db0e98a4-7186-4f55-8465-dc5f31563efa.png)
   
   Light mode medium screen
+  
   ![image](https://user-images.githubusercontent.com/60386159/231458301-4c29e753-ac1e-4df4-8ccc-070846096a27.png)
 
 
