@@ -63,6 +63,9 @@ summary {
   --color-matched: linear-gradient(0deg,
       rgb(44, 255, 44) 0%,
       rgb(29, 177, 0) 100%);
+  --color-available: linear-gradient(0deg,
+      rgb(236, 255, 220) 0%,
+      rgb(217, 255, 191) 100%);
 }
 
 /****************/
@@ -203,8 +206,73 @@ li {
   border: 0.2em solid var(--color-button-outline);
 }
 
+.available {
+  animation: available-animation 1s infinite alternate;
+  /* define the animation without the delay */
+}
+
+@keyframes available-animation {
+  0%, 100% {
+    background-image: var(--bingo-number);
+    /* start and end with the default background image */
+    transform: scale(1);
+    /* start and end with no scaling */
+  }
+
+  50% {
+    transform: scale(1.05);
+    /* scale up by 5% */
+    background-image: var(--color-available);
+    /* transition to the desired background image */
+  }
+}
+
+.available {
+  animation: available-animation 5s infinite ease-in-out alternate;
+  /* define the animation without the delay */
+}
+
+@keyframes available-animation {
+  0%, 100% {
+    background-image: var(--bingo-number);
+    /* start and end with the default background image */
+    transform: scale(1);
+    /* start and end with no scaling */
+  }
+
+  50% {
+    transform: scale(1.05);
+    /* scale up by 5% */
+    background-image: var(--color-available);
+    /* transition to the desired background image */
+  }
+}
+
 .matched {
-  background-image: var(--color-matched) !important;
+  animation: matched-animation 1s forwards ease-in-out;
+}
+
+@keyframes matched-animation {
+  0% {
+    background-image: var(--bingo-number);
+    /* start and end with the default background image */
+    transform: scale(1);
+    /* start and end with no scaling */
+  }
+
+  50% {
+    transform: scale(1.1);
+    /* scale up by 5% */
+    background-image: var(--color-matched);
+    /* transition to the desired background image */
+  }
+
+  100% {
+    transform: scale(1);
+    /* scale up by 5% */
+    background-image: var(--color-matched);
+    /* transition to the desired background image */
+  }
 }
 
 body>section:nth-child(6)>button {

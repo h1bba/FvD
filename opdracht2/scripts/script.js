@@ -28,7 +28,7 @@ pullNumberBtn.addEventListener("click", function () {
   var matchedCount = 0;
   for (var i = 0; i < bingoCardList.length; i++) {
     if (bingoCardList[i].textContent == randomNumber) {
-      bingoCardList[i].classList.add("matched");
+      bingoCardList[i].classList.add("available");
       matchedCount++;
     }
   }
