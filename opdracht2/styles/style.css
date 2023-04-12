@@ -267,7 +267,7 @@ body {
     align-self: center;
   }
 
-  ul:nth-child(1) li:first-child:before {
+  #randomNumbersList>li:first-child::before {
     position: absolute;
     content: "";
     background-color: var(--dark-highlight-border);
