@@ -25,19 +25,10 @@ pullNumberBtn.addEventListener("click", function () {
 
   // Check if the generated number matches with any number in the bingo card list
   var bingoCardList = document.querySelectorAll("#bingoCardList li");
-  var matchedCount = 0;
   for (var i = 0; i < bingoCardList.length; i++) {
     if (bingoCardList[i].textContent == randomNumber) {
       bingoCardList[i].classList.add("available");
-      matchedCount++;
     }
-  }
-
-  // Check if all the numbers in the bingo card have been matched
-  if (matchedCount == bingoCardList.length) {
-    alert(
-      "Congratulations! You have matched all the numbers on your bingo card."
-    );
   }
 
   // Add animation to show the pulled number
@@ -149,5 +140,18 @@ document.addEventListener("keydown", function (event) {
         activeElement.classList.add("matched");
       }
     }
+  }
+});
+
+// Get a reference to the "bingo" button
+var bingoBtn = document.querySelector("#bingoBtn");
+
+// Add a click event listener to the button
+bingoBtn.addEventListener("click", function () {
+  var matchedNumbers = document.querySelectorAll("#bingoCardList li.matched");
+  if (matchedNumbers.length === 20) {
+    alert("Bingo!");
+  } else {
+    alert("Je hebt nog geen bingo!");
   }
 });
