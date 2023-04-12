@@ -150,8 +150,9 @@ Ook werd het complex voor het pijltje, omdat deze richting het midden van het be
 
 Ik heb uiteindelijk een andere outro gekozen, namelijk dat het pijltje even opvalt en dan uitvaagt.
 
-
 </details>
+
+Ik kreeg hierna wat feedback van de docent en heb deze toegepast (clamp en kortere styling)
 
 ## Opdracht 2 plan
 
@@ -160,16 +161,17 @@ Ik heb uiteindelijk een andere outro gekozen, namelijk dat het pijltje even opva
 
 ### Je ontwerp:
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
+![wireflow schets](https://user-images.githubusercontent.com/60386159/231453935-f522b5b8-8b17-4cf1-8b76-271f893bde49.jpeg)
 
 ### Je ambitie:
 
 Aan deze technieken/punten wil ik werken:
 
-- punt 1
-- punt 2
-- nog een punt
-- ...
+Keydown events
+Input events
+Bingo systeem maken
+Styling kunnen geven aan JS gegenereerde elementen
+
 </details>
 
 ## Opdracht 2 test
@@ -181,23 +183,54 @@ Neem minimaal 5 bevindingen op:
 
 ### Bevinding 1:
 
-Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+Voor de nieuwe bingonummer was onduidelijk welke het nieuwst was
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Ik heb met een :before een highlight gegeven aan de nieuwste nummer in de nummers lijst
+
+![image](https://user-images.githubusercontent.com/60386159/231458510-cf02f2f1-0056-4ce5-bce4-b55fa4f63397.png)
+
+Dit is de code hiervoor:
+
+![image](https://user-images.githubusercontent.com/60386159/231459614-a19e5f74-e7bc-49ea-adde-1ce2d6223454.png)
+
+daarnaast heb ik een animatie toegevoegd zodat de nieuwe gerollde nummer groot in het scherm kwam
+
+![image](https://user-images.githubusercontent.com/60386159/231459191-8d52cce1-8122-4939-82ff-8d98c1d03dc1.png)
+
+Dit is de code hiervoor:
+
+![image](https://user-images.githubusercontent.com/60386159/231459751-f150faa0-fe70-41b7-a1de-55fd079fc2c7.png)
+
+Samen met JS maak ik een element aan die ik deze class geef:
+
+![image](https://user-images.githubusercontent.com/60386159/231460037-6d4e8801-9308-4241-a00c-e4269dcdcef5.png)
+
 
 ### Bevinding 2:
 
-Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+De gebruiker ziet niet altijd de bingo nummers die ze kunnen matchen
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Door het gebruiken van micro-interaction hebben de matchbare bingonummers nu een kleine animatie:
+
+![image](https://user-images.githubusercontent.com/60386159/231458766-7ad7827c-9450-4106-9903-790411a7c79e.png)
+
+Hier is het bingo getal 12 bijvoorbeeld beschikbaar.
+
+door deze animatie:
+
+![image](https://user-images.githubusercontent.com/60386159/231458954-d290d4ca-1f9d-4ecf-b48c-7157d3e59df8.png)
 
 ### Bevinding 3:
 
-...
+de user kon in de input UI event ook letters als input geven, terwijl de gerollde nummers hier alleen inkomen
+
+Dit heb ik gefixt door simpelweg in de html type="number" aan te geven
+
+![image](https://user-images.githubusercontent.com/60386159/231460230-d5b00002-bdff-41ac-a039-8c23cf7c30a5.png)
 
 </details>
 
@@ -208,7 +241,12 @@ Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het 
 
 ### Je uitkomst - karakteristiek screenshot(s):
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
+  Dark-mode small screen
+  ![animation](https://user-images.githubusercontent.com/60386159/231458016-db0e98a4-7186-4f55-8465-dc5f31563efa.png)
+  
+  Light mode medium screen
+  ![image](https://user-images.githubusercontent.com/60386159/231458301-4c29e753-ac1e-4df4-8ccc-070846096a27.png)
+
 
 ### Dit ging goed/Heb ik geleerd:
 
