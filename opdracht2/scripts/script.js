@@ -13,7 +13,7 @@ pullNumberBtn.addEventListener("click", function () {
 
   // Keep generating random numbers until a unique one is found
   do {
-    randomNumber = Math.floor(Math.random() * 21);
+    randomNumber = Math.floor(Math.random() * 31);
   } while (randomNumbers.includes(randomNumber));
 
   // Push the generated random number into the array
@@ -70,6 +70,7 @@ var bingoCardList = document.querySelector("#bingoCardList");
 for (var i = 0; i < bingoCardNumbers.length; i++) {
   var li = document.createElement("li");
   li.textContent = bingoCardNumbers[i];
+  li.setAttribute("tabindex", "0"); // add tabindex attribute
   bingoCardList.appendChild(li);
 
   // Add a click event listener to each li element in the bingo card list
@@ -81,3 +82,29 @@ for (var i = 0; i < bingoCardNumbers.length; i++) {
     }
   });
 }
+
+// Add a keydown event listener to the document
+document.addEventListener("keydown", function (event) {
+  // Check if the pressed key is the spacebar (keyCode 32)
+  if (event.keyCode === 32) {
+    // Simulate a click on the "pullNumber" button
+    pullNumberBtn.click();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  // handle arrow key presses
+  var bingoCardList = document.querySelectorAll("#bingoCardList li");
+  var activeIndex = Array.from(bingoCardList).findIndex(
+    (li) => li === document.activeElement
+  );
+  if (event.key === "ArrowLeft") {
+    if (activeIndex > 0) {
+      bingoCardList[activeIndex - 1].focus();
+    }
+  } else if (event.key === "ArrowRight") {
+    if (activeIndex < bingoCardList.length - 1) {
+      bingoCardList[activeIndex + 1].focus();
+    }
+  }
+});
