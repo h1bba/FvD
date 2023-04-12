@@ -49,23 +49,33 @@ summary {
   --color-button-outline: #aa6c39;
   --color-dark-red: #9e3d51;
   --color-dark-purple: #421f3d;
-  --color-background: linear-gradient(135deg,
-      rgba(158, 61, 81, 1) 0%,
-      rgba(66, 31, 61, 1) 100%);
+  --color-background: linear-gradient(
+    135deg,
+    rgba(158, 61, 81, 1) 0%,
+    rgba(66, 31, 61, 1) 100%
+  );
   --dark-highlight: rgba(0, 0, 0, 0.2);
   --dark-highlight-border: rgba(255, 255, 255, 0.4);
-  --bingo-number: linear-gradient(0deg,
-      hsla(0, 0%, 100%, 1) 0%,
-      hsla(50, 100%, 96%, 1) 100%);
-  --bingo-button: linear-gradient(0deg,
-      rgb(0, 242, 255) 0%,
-      rgb(11, 176, 246) 100%);
-  --color-matched: linear-gradient(0deg,
-      rgb(44, 255, 44) 0%,
-      rgb(29, 177, 0) 100%);
-  --color-available: linear-gradient(0deg,
-      rgb(236, 255, 220) 0%,
-      rgb(217, 255, 191) 100%);
+  --bingo-number: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 1) 0%,
+    hsla(50, 100%, 96%, 1) 100%
+  );
+  --bingo-button: linear-gradient(
+    0deg,
+    rgb(0, 242, 255) 0%,
+    rgb(11, 176, 246) 100%
+  );
+  --color-matched: linear-gradient(
+    0deg,
+    rgb(44, 255, 44) 0%,
+    rgb(29, 177, 0) 100%
+  );
+  --color-available: linear-gradient(
+    0deg,
+    rgb(236, 255, 220) 0%,
+    rgb(217, 255, 191) 100%
+  );
 }
 
 /****************/
@@ -74,55 +84,57 @@ summary {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: linear-gradient(135deg,
-        rgb(63, 24, 32) 0%,
-        rgb(17, 8, 16) 100%);
-    --color-matched: linear-gradient(0deg,
-        rgb(21, 114, 21) 0%,
-        rgb(15, 51, 8) 100%);
-    --bingo-number: linear-gradient(0deg,
-        rgb(48, 48, 48) 0%,
-        rgb(20, 20, 20) 100%);
-    --color-available: linear-gradient(0deg,
-        rgb(10, 58, 10) 0%,
-        rgb(6, 20, 3) 100%);
-    --bingo-button: linear-gradient(0deg,
-        rgb(38, 131, 136) 0%,
-        rgb(20, 74, 97) 100%);
+    --color-background: linear-gradient(
+      135deg,
+      rgb(63, 24, 32) 0%,
+      rgb(17, 8, 16) 100%
+    );
+    --color-matched: linear-gradient(
+      0deg,
+      rgb(21, 114, 21) 0%,
+      rgb(15, 51, 8) 100%
+    );
+    --bingo-number: linear-gradient(
+      0deg,
+      rgb(48, 48, 48) 0%,
+      rgb(20, 20, 20) 100%
+    );
+    --color-available: linear-gradient(
+      0deg,
+      rgb(10, 58, 10) 0%,
+      rgb(6, 20, 3) 100%
+    );
+    --bingo-button: linear-gradient(
+      0deg,
+      rgb(38, 131, 136) 0%,
+      rgb(20, 74, 97) 100%
+    );
     --color-gold: #50b300;
   }
 
   ul:nth-child(2) li {
     color: var(--color-white);
   }
-
 }
 
 @keyframes matched-animation {
   0% {
     background-image: var(--bingo-number);
-    /* start and end with the default background image */
     transform: scale(1);
-    /* start and end with no scaling */
   }
 
   50% {
     transform: scale(1.1);
-    /* scale up by 5% */
     background-image: var(--color-matched);
-    /* transition to the desired background image */
   }
 
   100% {
     transform: scale(1);
-    /* scale up by 5% */
     background-image: var(--color-matched);
-    /* transition to the desired background image */
   }
 }
 
 @keyframes available-animation {
-
   0%,
   100% {
     background-image: var(--bingo-number);
@@ -169,17 +181,14 @@ summary {
 
   10% {
     transform: rotate(-15deg);
-
   }
 
   20% {
     transform: rotate(15deg);
-
   }
 
   30% {
     transform: rotate(0deg);
-
   }
 
   100% {
@@ -203,7 +212,6 @@ body {
   background-image: var(--color-background);
   height: 100dvh;
   width: 100dvw;
-  overflow: hidden;
 }
 
 /* jouw code */
@@ -237,7 +245,7 @@ body {
   #pullNumber {
     display: block;
     position: absolute;
-    bottom: 1em;
+    bottom: -1em;
     left: 0;
     right: 0;
     margin: auto;
@@ -254,7 +262,7 @@ body {
     font-weight: bold;
   }
 
-  body>section:nth-child(2) {
+  body > section:nth-child(2) {
     display: flex;
     position: relative;
     left: 0;
@@ -267,7 +275,7 @@ body {
     align-self: center;
   }
 
-  #randomNumbersList>li:first-child::before {
+  #randomNumbersList > li:first-child::before {
     position: absolute;
     content: "";
     background-color: var(--dark-highlight-border);
@@ -294,7 +302,7 @@ body {
     border-radius: 2em;
   }
 
-  body>section:nth-child(3) {
+  body > section:nth-child(3) {
     display: flex;
     max-width: 24em;
     flex-direction: column;
@@ -302,7 +310,7 @@ body {
     margin: 0 auto;
   }
 
-  body>section:nth-child(4) {
+  body > section:nth-child(4) {
     display: flex;
     max-width: 24em;
     flex-direction: column;
@@ -313,25 +321,28 @@ body {
   ul:nth-child(2) {
     max-width: 24em;
     list-style: none;
+    min-width: 24em;
     padding: 0;
     position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   ul:nth-child(2) li {
+    text-align: center;
     position: relative;
-    width: 10%;
-    padding: 1em;
+    padding: 1.5em;
+    min-width: 4.5em;
     margin: 0;
     background-image: var(--bingo-number);
     border-radius: 0.2em;
     border: 1px solid var(--color-button-outline);
   }
 
-  #randomNumbersList>li {
+  #randomNumbersList > li {
     position: relative;
     scroll-snap-align: center;
 
@@ -349,7 +360,7 @@ body {
     border: 0.2em solid var(--color-button-outline);
   }
 
-  body>section:nth-child(4)>button {
+  body > section:nth-child(4) > button {
     display: block;
     left: 0;
     right: 0;
@@ -399,30 +410,28 @@ body {
     border: 0.1em solid var(--color-gold);
   }
 
-  body>section:nth-child(6) {
+  body > section:nth-child(3) {
     justify-content: center;
     max-width: 24em;
     position: relative;
-    margin: 0 auto
+    margin: 0 auto;
   }
 
   #randomNumbersList {
     max-width: 24em;
   }
 
-  #randomNumbersList>li {
+  #randomNumbersList > li {
     max-width: 3.5em;
   }
-
 }
 
 @media screen and (min-width: 1200px) {
-
   h1 {
     margin-bottom: 3em;
   }
 
-  body>section:nth-child(6) {
+  body > section:nth-child(6) {
     justify-content: left;
     margin: 0;
   }
@@ -431,7 +440,7 @@ body {
     width: 24em;
   }
 
-  body>section:nth-child(4) {
+  body > section:nth-child(4) {
     display: inline-flex;
     position: relative;
     margin-left: 5em;
@@ -439,12 +448,11 @@ body {
     width: 45%;
   }
 
-  body>section:nth-child(3) {
+  body > section:nth-child(3) {
     display: inline-flex;
     position: absolute;
     margin-right: 5em;
     right: 3em;
     width: 45%;
   }
-
 }
