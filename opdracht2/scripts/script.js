@@ -53,6 +53,21 @@ pullNumberBtn.addEventListener("click", function () {
   }, 500);
 });
 
+var searchBar = document.querySelector("#searchBar");
+
+searchBar.addEventListener("input", function () {
+  var filterValue = searchBar.value.toLowerCase();
+  var filteredNumbers = randomNumbers.filter(function (number) {
+    return number.toString().includes(filterValue);
+  });
+  randomNumbersList.innerHTML = "";
+  filteredNumbers.forEach(function (number) {
+    var li = document.createElement("li");
+    li.textContent = number;
+    randomNumbersList.appendChild(li);
+  });
+});
+
 // Declare an empty array to store the bingo card numbers
 var bingoCardNumbers = [];
 
@@ -105,6 +120,34 @@ document.addEventListener("keydown", function (event) {
   } else if (event.key === "ArrowRight") {
     if (activeIndex < bingoCardList.length - 1) {
       bingoCardList[activeIndex + 1].focus();
+    }
+  } else if (event.key === "ArrowUp") {
+    if (activeIndex > 4) {
+      bingoCardList[activeIndex - 5].focus();
+    }
+  } else if (event.key === "ArrowDown") {
+    if (activeIndex < 15) {
+      bingoCardList[activeIndex + 5].focus();
+    }
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  // Check if the pressed key is the Enter key (keyCode 13)
+  if (event.keyCode === 13) {
+    // Get the currently active element
+    var activeElement = document.activeElement;
+
+    // Check if the active element is an li element in the bingo card list
+    if (
+      activeElement.tagName === "LI" &&
+      activeElement.parentNode.id === "bingoCardList"
+    ) {
+      // Check if the clicked li element matches with any number in the randomNumbers array
+      var clickedNumber = parseInt(activeElement.textContent);
+      if (randomNumbers.includes(clickedNumber)) {
+        activeElement.classList.add("matched");
+      }
     }
   }
 });
