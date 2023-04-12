@@ -150,8 +150,9 @@ Ook werd het complex voor het pijltje, omdat deze richting het midden van het be
 
 Ik heb uiteindelijk een andere outro gekozen, namelijk dat het pijltje even opvalt en dan uitvaagt.
 
-
 </details>
+
+Ik kreeg hierna wat feedback van de docent en heb deze toegepast (clamp en kortere styling)
 
 ## Opdracht 2 plan
 
@@ -160,16 +161,17 @@ Ik heb uiteindelijk een andere outro gekozen, namelijk dat het pijltje even opva
 
 ### Je ontwerp:
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
+![WhatsApp Image 2023-04-12 at 13 13 06](https://user-images.githubusercontent.com/60386159/231462639-cc231b9c-3137-4a5d-b0cd-40a24170ed5a.jpeg)
 
 ### Je ambitie:
 
 Aan deze technieken/punten wil ik werken:
 
-- punt 1
-- punt 2
-- nog een punt
-- ...
+- Keydown events
+- Input events
+- Bingo systeem maken
+- Styling kunnen geven aan JS gegenereerde elementen
+
 </details>
 
 ## Opdracht 2 test
@@ -181,23 +183,83 @@ Neem minimaal 5 bevindingen op:
 
 ### Bevinding 1:
 
-Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+Voor de nieuwe bingonummer was onduidelijk welke het nieuwst was
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Ik heb met een :before een highlight gegeven aan de nieuwste nummer in de nummers lijst
+
+![image](https://user-images.githubusercontent.com/60386159/231458510-cf02f2f1-0056-4ce5-bce4-b55fa4f63397.png)
+
+Dit is de code hiervoor:
+
+![image](https://user-images.githubusercontent.com/60386159/231459614-a19e5f74-e7bc-49ea-adde-1ce2d6223454.png)
+
+daarnaast heb ik een animatie toegevoegd zodat de nieuwe gerollde nummer groot in het scherm kwam
+
+![image](https://user-images.githubusercontent.com/60386159/231459191-8d52cce1-8122-4939-82ff-8d98c1d03dc1.png)
+
+Dit is de code hiervoor:
+
+![image](https://user-images.githubusercontent.com/60386159/231459751-f150faa0-fe70-41b7-a1de-55fd079fc2c7.png)
+
+Samen met JS maak ik een element aan die ik deze class geef:
+
+![image](https://user-images.githubusercontent.com/60386159/231460037-6d4e8801-9308-4241-a00c-e4269dcdcef5.png)
+
 
 ### Bevinding 2:
 
-Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+De gebruiker ziet niet altijd de bingo nummers die ze kunnen matchen
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Door het gebruiken van micro-interaction hebben de matchbare bingonummers nu een kleine animatie:
+
+![image](https://user-images.githubusercontent.com/60386159/231458766-7ad7827c-9450-4106-9903-790411a7c79e.png)
+
+Hier is het bingo getal 12 bijvoorbeeld beschikbaar.
+
+door deze animatie:
+
+![image](https://user-images.githubusercontent.com/60386159/231458954-d290d4ca-1f9d-4ecf-b48c-7157d3e59df8.png)
 
 ### Bevinding 3:
 
-...
+de user kon in de input UI event ook letters als input geven, terwijl de gerollde nummers hier alleen inkomen
+
+Dit heb ik gefixt door simpelweg in de html type="number" aan te geven
+
+![image](https://user-images.githubusercontent.com/60386159/231460230-d5b00002-bdff-41ac-a039-8c23cf7c30a5.png)
+  
+![image](https://user-images.githubusercontent.com/60386159/231460607-424ce0ce-6d53-4a53-8383-187f9cffce6d.png)
+
+![image](https://user-images.githubusercontent.com/60386159/231460688-5ff4640c-bede-46d6-bd07-bed96e30ebd6.png)
+
+### Bevinding 4:
+
+de gebruikers misten een micro interactie voor het matchen van nummers, hier onstond verwarring of de nummer gematcht was of niet
+
+### oplossing:
+
+![image](https://user-images.githubusercontent.com/60386159/231463840-0ed60323-e5e5-49bc-a2fd-9fcdcf3ce882.png)
+
+![image](https://user-images.githubusercontent.com/60386159/231464090-cc731ce6-d639-4046-9fea-bd572b17243e.png)
+
+We geven de animatie ook de property forwards, zodat de groene kleur blijft staan zodra de animatie is afgelopen
+
+![image](https://user-images.githubusercontent.com/60386159/231464308-79970414-69c1-47d2-ab3d-9fcb9ce8aeba.png)
+
+### Bevinding 5:
+
+Sommige users waren slim genoeg om de bingo knop te klikken voordat het mogelijk was.
+
+### oplossing:
+
+Ik heb dit opgelost door een if else te gebruiken:
+
+![image](https://user-images.githubusercontent.com/60386159/231465000-d82112db-ca42-4e99-a7e2-17308b9f37cd.png)
+
 
 </details>
 
@@ -208,17 +270,48 @@ Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het 
 
 ### Je uitkomst - karakteristiek screenshot(s):
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
+  Dark-mode small screen
+  
+  ![animation](https://user-images.githubusercontent.com/60386159/231458016-db0e98a4-7186-4f55-8465-dc5f31563efa.png)
+  
+  Light mode medium screen
+  
+  ![image](https://user-images.githubusercontent.com/60386159/231458301-4c29e753-ac1e-4df4-8ccc-070846096a27.png)
+
 
 ### Dit ging goed/Heb ik geleerd:
 
-Korte omschrijving met plaatje(s)
+De CSS highlight is gemakkelijk te maken door het gebruik van juiste position: relative; op de li zelf
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+Keydown events, index gebruik en event listeners
+
+Math.floor
+
+Elementen inserten vanuit JavaScript
 
 ### Dit was lastig/Is niet gelukt:
 
-Korte omschrijving met plaatje(s)
+Een apparte eindscherm die alles in de pagina verandert naar een eindscherm, ik heb nu zodra je bingo klikt een popup
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
+![image](https://user-images.githubusercontent.com/60386159/231463450-c7e1cf10-69d4-4ec0-856d-3dd878132095.png)
+
+Ik wilde de bingo knop een animatie geven zodra bingo mogelijk was, dit werd mij te complex met JavaScript
+
+
 </details>
+
+### Bronnen:
+
+- [Event listener voor click](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event)
+- [Push value naar een array](https://stackoverflow.com/questions/7261431/adding-items-to-an-object-through-the-push-method)
+- [querySelector gebruik](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+- [Math floor](https://www.tutorialspoint.com/math-floor-function-in-javascript#:~:text=floor()%20function%20in%20JavaScript,-HTMLJavascriptWeb&text=The%20floor()%20function%20of,this%20function%20returns%20the%20same.)
+- [Loop voor li's](https://www.w3schools.com/js/js_loop_for.asp)
+- [Classlist property](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+- [Append child methode](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+- [input UI event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)
+- [tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex?retiredLocale=nl)
+- [Keydown event](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event)
+- [Alert methode](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
+- [Css tricks voor flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
