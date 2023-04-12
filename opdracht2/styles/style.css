@@ -349,3 +349,8 @@ h2 {
     opacity: 0; /* end with an opacity of 0 to hide it again */
   }
 }
+
+li:focus {
+  outline: 1em;
+  border: 1em solid var(--color-gold); /* add a blue border */
+}
